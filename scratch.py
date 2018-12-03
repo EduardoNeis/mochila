@@ -22,7 +22,14 @@ def main():
     VALOR_OBJ_MAX = int(input('Insira qual deve ser o valor maximo dos objetos: '))
     VALOR_OBJ_MIN = int(input('Insira qual deve ser o valor minimo dos objetos: '))
     geracao = 1
+
     populacao = geraPopulacaoinicial(TAM_POP, QuantidadeItens) #gera nova população
+    for g in range(0, QTD_ITE):
+        # A linha abaixo organiza a população colocando os individuos com fitness mais alto antes
+        populacao = sorted(populacao, key=lambda x: fitness(x), reverse=True)
+
     print(populacao)
+
+
 
 main()
