@@ -27,6 +27,10 @@ def main():
     for g in range(0, QTD_ITE):
         # A linha abaixo organiza a população colocando os individuos com fitness mais alto antes
         populacao = sorted(populacao, key=lambda x: fitness(x), reverse=True)
+        for i in populacao:
+            print('{} fitness: {}'.format(str(i), fitness(i)))
+            populacao =
+            geracao += 1
 
     print(populacao)
 
