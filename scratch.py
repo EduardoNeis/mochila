@@ -65,9 +65,9 @@ def fitness():
             peso_total += ITEMS[indice].peso
         indice += 1
 
-    if peso_total > CAPACIDADE_MOCHILA
+    if peso_total > CAPACIDADE_MOCHILA:
         return 0 #se o peso total for maior que a capacidade da mochila fitness = 0
-    else
+    else:
         return valor_total
 
 
@@ -75,38 +75,38 @@ def evolutiva(populacao_):
      tamanhoPais = int(intervalo*TAM_POP)
      pais = populacao_[:tamanhoPais]
      naoPais = populacao_[tamanhoPais:]
-
     #TODO Roleta dos pais
-    for np in naoPais:
-        if 0.5 > random.random():
+     for np in naoPais:
+         if 0.5 > random.random():
             pais.append(np)
-
-
     #TODO Roleta da mutacao
-    for p in pais:
-        if TAXA_MUTACAO > random.random()
-            mutacao(p)
+     for p in pais:
+         if TAXA_MUTACAO > random.random():
+             mutacao(p)
+     #TODO Crossover
+     filhos = []
+     tamanho = TAM_POP - tamanhoPais
+     while len(filhos) < tamanho:
+         cromossomo1 = populacao_[random.randit(0,len(pais))]
+         cromossomo2 = populacao_[random.randit(0,len(pais))]
+         aux = len(cromossomo1)//2
+         filho = cromossomo1[:aux] + cromossomo2[aux:]
+         if TAXA_MUTACAO > random.random():
+             mutacao(filho)
+         filhos.append(filho)
+
+         pais.extend(filhos)
+         return filhos
 
 
-    #TODO Crossover
-    filhos = []
-    tamanho = TAM_POP - tamanhoPais
-    while len(filhos) < tamanho:
-        cromossomo1 = populacao_[random.randit(0,len(pais))]
-        cromossomo2 = populacao_[random.randit(0,len(pais))]
-        aux = len(cromossomo1)//2
-        filho = cromossomo1[:aux] + cromossomo2[aux:]
-        if TAXA_MUTACAO > random.random():
-            mutacao(filho)
-        filhos.append(filho)
-
-        pais.extend(filhos)
-        return filhos
-
-
-
+#TODO funcao de mutacao
 def mutacao(individuo):
-    #TODO funcao de mutacao
+    r = random.randint(0,len(individuo)-1)
+    if individuo[r] == 1:
+        individuo[r] = 0
+    else:
+        individuo[r] = 1
+
 
 
 
