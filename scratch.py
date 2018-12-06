@@ -83,8 +83,26 @@ def evolutiva(populacao_):
 
 
     #TODO Roleta da mutacao
-    for
+    for p in pais:
+        if TAXA_MUTACAO > random.random()
+            mutacao(p)
+
+
     #TODO Crossover
+    filhos = []
+    tamanho = TAM_POP - tamanhoPais
+    while len(filhos) < tamanho:
+        cromossomo1 = populacao_[random.randit(0,len(pais))]
+        cromossomo2 = populacao_[random.randit(0,len(pais))]
+        aux = len(cromossomo1)//2
+        filho = cromossomo1[:aux] + cromossomo2[aux:]
+        if TAXA_MUTACAO > random.random():
+            mutacao(filho)
+        filhos.append(filho)
+
+        pais.extend(filhos)
+        return filhos
+
 
 
 def mutacao(individuo):
